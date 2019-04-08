@@ -31,7 +31,7 @@ type JSONSubtitle struct {
 	Styles []struct {
 		Name           string  `json:"Name"`
 		Fontname       string  `json:"Fontname"`
-		Fontsize       int     `json:"Fontsize"`
+		Fontsize       float64 `json:"Fontsize"`
 		PrimaryColor   string  `json:"PrimaryColor"`
 		SecondaryColor string  `json:"SecondaryColor"`
 		OutlineColor   string  `json:"OutlineColor"`
@@ -40,11 +40,11 @@ type JSONSubtitle struct {
 		Italic         int     `json:"Italic"`
 		Underline      int     `json:"Underline"`
 		StrikeOut      int     `json:"StrikeOut"`
-		ScaleX         int     `json:"ScaleX"`
-		ScaleY         int     `json:"ScaleY"`
-		Spacing        int     `json:"Spacing"`
+		ScaleX         float64 `json:"ScaleX"`
+		ScaleY         float64 `json:"ScaleY"`
+		Spacing        float64 `json:"Spacing"`
 		Angle          float64 `json:"Angle"`
-		BorderStyle    float64 `json:"BorderStyle"`
+		BorderStyle    int     `json:"BorderStyle"`
 		Outline        float64 `json:"Outline"`
 		Shadow         float64 `json:"Shadow"`
 		Alignment      int     `json:"Alignment"`
@@ -123,7 +123,7 @@ func Json2ass(bt []byte) {
 		var styelarr []string
 		styelarr = append(styelarr, "Style: "+style.Name)
 		styelarr = append(styelarr, style.Fontname)
-		styelarr = append(styelarr, strconv.Itoa(style.Fontsize))
+		styelarr = append(styelarr, fmt.Sprintf("%f", style.Fontsize))
 		styelarr = append(styelarr, style.PrimaryColor)
 		styelarr = append(styelarr, style.SecondaryColor)
 		styelarr = append(styelarr, style.OutlineColor)
@@ -132,11 +132,11 @@ func Json2ass(bt []byte) {
 		styelarr = append(styelarr, strconv.Itoa(style.Italic))
 		styelarr = append(styelarr, strconv.Itoa(style.Underline))
 		styelarr = append(styelarr, strconv.Itoa(style.StrikeOut))
-		styelarr = append(styelarr, strconv.Itoa(style.ScaleX))
-		styelarr = append(styelarr, strconv.Itoa(style.ScaleY))
-		styelarr = append(styelarr, strconv.Itoa(style.Spacing))
+		styelarr = append(styelarr, fmt.Sprintf("%f", style.ScaleX))
+		styelarr = append(styelarr, fmt.Sprintf("%f", style.ScaleY))
+		styelarr = append(styelarr, fmt.Sprintf("%f", style.Spacing))
 		styelarr = append(styelarr, fmt.Sprintf("%f", style.Angle))
-		styelarr = append(styelarr, fmt.Sprintf("%f", style.BorderStyle))
+		styelarr = append(styelarr, strconv.Itoa(style.BorderStyle))
 		styelarr = append(styelarr, fmt.Sprintf("%f", style.Outline))
 		styelarr = append(styelarr, fmt.Sprintf("%f", style.Shadow))
 		styelarr = append(styelarr, strconv.Itoa(style.Alignment))

@@ -49,7 +49,7 @@ type Events struct {
 type Styles struct {
 	Name           string
 	Fontname       string
-	Fontsize       int
+	Fontsize       float64
 	PrimaryColor   string
 	SecondaryColor string
 	OutlineColor   string
@@ -58,11 +58,11 @@ type Styles struct {
 	Italic         int
 	Underline      int
 	StrikeOut      int
-	ScaleX         int
-	ScaleY         int
-	Spacing        int
+	ScaleX         float64
+	ScaleY         float64
+	Spacing        float64
 	Angle          float64
-	BorderStyle    float64
+	BorderStyle    int
 	Outline        float64
 	Shadow         float64
 	Alignment      int
@@ -218,7 +218,7 @@ func ParseStyle(sub string) Styles {
 			devided := strings.Split(trimmed, ",")
 			style.Name = devided[0]
 			style.Fontname = devided[1]
-			fsize, _ := strconv.Atoi(devided[2])
+			fsize, _ := strconv.ParseFloat(devided[2], 64)
 			style.Fontsize = fsize
 			style.PrimaryColor = devided[3]
 			style.SecondaryColor = devided[4]
@@ -228,11 +228,11 @@ func ParseStyle(sub string) Styles {
 			italic, _ := strconv.Atoi(devided[8])
 			underline, _ := strconv.Atoi(devided[9])
 			strikeout, _ := strconv.Atoi(devided[10])
-			scalex, _ := strconv.Atoi(devided[11])
-			scaley, _ := strconv.Atoi(devided[12])
-			spacing, _ := strconv.Atoi(devided[13])
+			scalex, _ := strconv.ParseFloat(devided[11], 64)
+			scaley, _ := strconv.ParseFloat(devided[12], 64)
+			spacing, _ := strconv.ParseFloat(devided[13], 64)
 			angle, _ := strconv.ParseFloat(devided[14], 64)
-			borderstyle, _ := strconv.ParseFloat(devided[15], 64)
+			borderstyle, _ := strconv.Atoi(devided[15])
 			outline, _ := strconv.ParseFloat(devided[16], 64)
 			shadow, _ := strconv.ParseFloat(devided[17], 64)
 			aligment, _ := strconv.Atoi(devided[18])
