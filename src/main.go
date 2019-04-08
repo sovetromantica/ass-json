@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"io/ioutil"
 	"log"
 	"os"
 
@@ -12,6 +13,7 @@ import (
 
 func main() {
 	optASS := getopt.StringLong("ass", 'a', "", "Open ASS/SSA File")
+	optJSON := getopt.StringLong("json", 'j', "", "Open JSON File")
 	optHelp := getopt.BoolLong("help", 0, "Help")
 	getopt.Parse()
 
@@ -31,4 +33,15 @@ func main() {
 		ass2json.Ass2json(scanner)
 	}
 
+	if len(*optJSON) > 1 {
+		file, err := os.Open(*optJSON)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer file.Close()
+
+		byteValue, _ := ioutil.ReadAll(file)
+		ass2json.Json2ass(byteValue)
+		//ass2json.Ass2json(scanner)
+	}
 }
