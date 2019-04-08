@@ -61,10 +61,10 @@ type Styles struct {
 	ScaleX         int
 	ScaleY         int
 	Spacing        int
-	Angle          int
-	BorderStyle    int
-	Outline        int
-	Shadow         int
+	Angle          float64
+	BorderStyle    float64
+	Outline        float64
+	Shadow         float64
 	Alignment      int
 	MarginL        int
 	MarginR        int
@@ -231,10 +231,10 @@ func ParseStyle(sub string) Styles {
 			scalex, _ := strconv.Atoi(devided[11])
 			scaley, _ := strconv.Atoi(devided[12])
 			spacing, _ := strconv.Atoi(devided[13])
-			angle, _ := strconv.Atoi(devided[14])
-			borderstyle, _ := strconv.Atoi(devided[15])
-			outline, _ := strconv.Atoi(devided[16])
-			shadow, _ := strconv.Atoi(devided[17])
+			angle, _ := strconv.ParseFloat(devided[14], 64)
+			borderstyle, _ := strconv.ParseFloat(devided[15], 64)
+			outline, _ := strconv.ParseFloat(devided[16], 64)
+			shadow, _ := strconv.ParseFloat(devided[17], 64)
 			aligment, _ := strconv.Atoi(devided[18])
 			marginl, _ := strconv.Atoi(devided[19])
 			marginr, _ := strconv.Atoi(devided[20])
