@@ -239,6 +239,7 @@ func ParseStyle(sub string) Styles {
 			marginl, _ := strconv.Atoi(devided[19])
 			marginr, _ := strconv.Atoi(devided[20])
 			marginv, _ := strconv.Atoi(devided[21])
+			encoding, _ := strconv.Atoi(devided[22])
 			style.Bold = bold
 			style.Italic = italic
 			style.Underline = underline
@@ -254,6 +255,7 @@ func ParseStyle(sub string) Styles {
 			style.MarginL = marginl
 			style.MarginR = marginr
 			style.MarginV = marginv
+			style.Encoding = encoding
 			return style
 		}
 	}

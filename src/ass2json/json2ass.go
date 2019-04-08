@@ -119,6 +119,7 @@ func Json2ass(bt []byte) {
 	v4styles = append(v4styles, "[V4+ Styles]")
 	v4styles = append(v4styles, "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding")
 	for _, style := range unm.Styles {
+		//log.Println(style)
 		var styelarr []string
 		styelarr = append(styelarr, "Style: "+style.Name)
 		styelarr = append(styelarr, style.Fontname)
@@ -135,7 +136,6 @@ func Json2ass(bt []byte) {
 		styelarr = append(styelarr, strconv.Itoa(style.ScaleY))
 		styelarr = append(styelarr, strconv.Itoa(style.Spacing))
 		styelarr = append(styelarr, strconv.Itoa(style.Angle))
-		styelarr = append(styelarr, strconv.Itoa(style.Bold))
 		styelarr = append(styelarr, strconv.Itoa(style.BorderStyle))
 		styelarr = append(styelarr, strconv.Itoa(style.Outline))
 		styelarr = append(styelarr, strconv.Itoa(style.Shadow))
