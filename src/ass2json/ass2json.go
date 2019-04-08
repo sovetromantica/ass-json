@@ -269,9 +269,10 @@ func ParseDialogueAndComments(sub string) Events {
 	if len(sub) > 9 {
 		determinator := sub[:9]
 		if strings.Contains(determinator, "Dialogue:") == true {
-			trimmed := strings.Trim(sub, "Dialogue: ")
+			// trimmed := strings.Trim(sub, "Dialogue: ")
+			trimmed := sub[10:]
 			devided := strings.Split(trimmed, ",")
-
+			//log.Panicln(devided)
 			mul := strings.Join(devided[9:], ",")
 			// Inputting Dialogue event
 			// Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -291,7 +292,7 @@ func ParseDialogueAndComments(sub string) Events {
 			event.Effect = devided[8]
 			event.Text = mul
 		} else if strings.Contains(determinator, "Comment:") == true {
-			trimmed := strings.Trim(sub, "Dialogue: ")
+			trimmed := strings.Trim(sub, "Comment: ")
 			devided := strings.Split(trimmed, ",")
 
 			mul := strings.Join(devided[9:], ",")
